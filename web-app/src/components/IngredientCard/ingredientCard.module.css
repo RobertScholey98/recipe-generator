@@ -1,0 +1,50 @@
+.container {
+    border: 1px solid #414288;
+    background-color: #414288;
+    border-radius: 0.2rem;
+    margin: 1rem;
+    padding: 0rem 1rem;
+    filter: drop-shadow(0 0 0.1rem black);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.addIcon {
+    padding-left: 1rem;
+    font-size: 2rem;
+}
+
+.addIcon:hover {
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+.chevronIconClosed {
+    padding-right: 0.5rem;
+    font-size: 1.17rem;
+    transition: .3s;
+    cursor: pointer;
+}
+.chevronIconExpanded {
+    padding-right: 0.5rem;
+    font-size: 1.17rem;
+    rotate: -90deg;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.chevronIcon:hover {
+    padding-right: 0.5rem;
+    cursor: pointer;
+}
+
+.description {
+    font-size: .8rem;
+    padding: 1rem;
+    text-align: start;
+}
