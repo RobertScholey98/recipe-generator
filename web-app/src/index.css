@@ -8,6 +8,7 @@ body {
   background-color: #414288;
   color: #F6E8EA;
   text-align: center;
+  min-height: 100%;
   overflow-x: hidden;
 }
 

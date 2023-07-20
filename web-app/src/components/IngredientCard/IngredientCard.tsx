@@ -1,6 +1,5 @@
-import React, { useState, ChangeEvent, FormEvent, useEffect } from 'react';
+import React, { useState } from 'react';
 import { addIngredient, Ingredient, removeIngredient } from '../../store/features/allIngredientsSlice';
-import { useAppSelector } from '../../store/store';
 import styles from './ingredientCard.module.css';
 import { CgChevronRight, CgPlayListAdd, CgPlayListCheck } from 'react-icons/cg';
 import { useDispatch } from 'react-redux';
@@ -38,11 +37,11 @@ const [isExpanded, setIsExpanded] = useState<boolean>(false);
             }
         </div>
         {isExpanded &&
-            <div>
+            <div className={styles.expandedContainer}>
                 <p className={styles.description}>
                     {ingredient.strDescription}
                 </p>
-                
+                <img src={`https://www.themealdb.com/images/ingredients/${ingredient.strIngredient}-small.png`} alt={`the ingredient: ${ingredient.strIngredient}`} className={styles.ingredientImage}/>
             </div>
         }
     </div>

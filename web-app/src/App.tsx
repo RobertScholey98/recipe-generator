@@ -17,21 +17,23 @@ function App() {
       dispatch(addAllIngredients({ingredients: response.data.meals}))
     })
   },[])
-  console.log({foundIngredients})
   return (
     <>
       <h1 style={{margin: '0', padding: '.5rem 0', backgroundColor: '#7A9B76', color: '#F6E8EA', fontFamily: 'monospace'}}>RECIPE GENERATOR</h1>
+      {!foundIngredients[0] && 
+            <h1 className={styles.launchTitle}>🍞 Add some ingredients to get started 🌽</h1>
+          }
       <div className={styles.App}>
-        { foundIngredients[0] &&
-          <section className={styles.left}>
-            <h2>My ingredients</h2>
-            <ul>
-              
-            </ul>
+          <section className={foundIngredients[0] ? styles.left : styles.leftHidden}>
+            
+          <h2 className={foundIngredients[0] ? styles.recipeTitle : styles.recipeTitleHidden}>Recipes</h2>
+               
           </section>
-        }
+    
         <section className={styles.right}>
+          
           <SearchBar onSearch={() => {}}/>
+          
         </section>
       </div>
     </>

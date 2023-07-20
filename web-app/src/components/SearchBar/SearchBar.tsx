@@ -4,6 +4,7 @@ import { useAppSelector } from '../../store/store';
 import IngredientCard from '../IngredientCard/IngredientCard';
 import styles from './searchbar.module.css';
 import { CgSearch } from 'react-icons/cg'
+import FoundIngredients from '../FoundIngredients/FoundIngredients';
 
 interface SearchBarProps {
   onSearch: (searchTerm: string) => void;
@@ -16,15 +17,19 @@ const getRandomPlaceHolder = (ingredients: Ingredient[]): string => {
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const [placeholder, setPlaceHolder] = useState<string>('found')
+  const [placeholder, setPlaceHolder] = useState<string>('Searching the cupboards...')
   const allIngredients = useAppSelector((state) => state.allIngredients.ingredients)
-
+  const foundIngredients = allIngredients.filter((ingredient) => ingredient.owned)
   useEffect(() => {
-    setTimeout(()=> {
-      if(allIngredients[0]){
-        setPlaceHolder(getRandomPlaceHolder(allIngredients))
-      }
-    }, 1000)
+    if(!foundIngredients[0]){
+      setTimeout(()=> {
+        if(allIngredients[0]){
+          setPlaceHolder(getRandomPlaceHolder(allIngredients))
+        }
+      }, 1000)
+    } else {
+      setPlaceHolder('search ingredients...');
+    }
   }, [allIngredients, placeholder]) 
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -39,13 +44,8 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 
   return (
     <>
-      <ul>
-        {allIngredients.map((ingredient) => {
-          return ingredient.owned ? <li>{ingredient.strIngredient}</li> : <></>
-        })}
-      </ul>
+      <FoundIngredients />
       <form className={styles.container} onSubmit={handleFormSubmit}>
-        
         <input className={styles.searchbar} type="text" value={searchTerm} onChange={handleInputChange} placeholder={placeholder} />
         <CgSearch size={'2rem'}/>
       </form>

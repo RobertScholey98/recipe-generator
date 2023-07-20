@@ -1,0 +1,27 @@
+.container {
+
+}
+
+.listContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ingredientTag {
+    list-style: none;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.removeIcon {
+    cursor: pointer;
+    margin-left: 0.5rem;
+    transition: 0.3s;
+}
+
+.removeIcon:hover {
+    color: white;
+    transition: 0.3s;
+}
