@@ -30,7 +30,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     } else {
       setPlaceHolder('search ingredients...');
     }
-  }, [allIngredients, placeholder]) 
+  }, [allIngredients, placeholder]);
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setSearchTerm(event.target.value);

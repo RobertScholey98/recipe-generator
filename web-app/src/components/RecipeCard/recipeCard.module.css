@@ -1,0 +1,107 @@
+.container {
+    background-color: #F6E8EA;
+    padding: 0.1rem;
+    margin: 0.4rem;
+    color: darkslategray;
+    flex-grow: 1;
+    max-height: 100px;
+}
+
+.expandedContainer {
+    background-color: #F6E8EA;
+    padding: 0.1rem;
+    margin: 0.4rem;
+    color: darkslategray;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.headerLeft {
+    display: flex;
+    align-items: center;
+}
+
+.headerText {
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+
+.missingIngredients {
+    margin: 0;
+    font-size: 0.75rem;
+    color: #D74E09;
+}
+
+.tag {
+    margin: 0;
+    font-size: 0.75rem;
+}
+
+.chevronIconClosed {
+    padding-right: 0.5rem;
+    font-size: 1.17rem;
+    transition: .3s;
+    cursor: pointer;
+}
+.chevronIconExpanded {
+    padding-right: 0.5rem;
+    font-size: 1.17rem;
+    rotate: -90deg;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.previewImage {
+    max-height: 100px;
+}
+
+.previewImageExpanded {
+    height: 100%;
+}
+
+.recipeName {
+    margin: 0;
+    padding: 0;
+}
+
+.detailsContainer {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+}
+
+.descriptionRight {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.ingredient {
+    font-size: 0.85rem;
+    font-weight: bolder;
+    color: #D74E09;
+}
+
+.ingredientOwned {
+    color: #7A9B76
+}
+
+.ingredientsList {
+    text-align: left;
+    font-size: 0.75rem;
+    list-style-type: none;
+    flex: 1;
+}
+
+.method {
+    padding: 0 2rem;
+    margin: 0;
+    text-align: justify;
+}

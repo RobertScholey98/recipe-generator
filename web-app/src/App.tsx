@@ -5,6 +5,7 @@ import { addAllIngredients } from './store/features/allIngredientsSlice';
 import { useAppSelector } from './store/store';
 import styles from './App.module.css';
 import SearchBar from './components/SearchBar/SearchBar';
+import RecipeList from './components/RecipeList/RecipeList';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -19,7 +20,7 @@ function App() {
   },[])
   return (
     <>
-      <h1 style={{margin: '0', padding: '.5rem 0', backgroundColor: '#7A9B76', color: '#F6E8EA', fontFamily: 'monospace'}}>RECIPE GENERATOR</h1>
+      <h1 style={{margin: '0', padding: '.5rem 0', backgroundColor: '#F6E8EA', color: 'slategrey', fontFamily: 'monospace'}}>RECIPE GENERATOR</h1>
       {!foundIngredients[0] && 
             <h1 className={styles.launchTitle}>🍞 Add some ingredients to get started 🌽</h1>
           }
@@ -27,6 +28,7 @@ function App() {
           <section className={foundIngredients[0] ? styles.left : styles.leftHidden}>
             
           <h2 className={foundIngredients[0] ? styles.recipeTitle : styles.recipeTitleHidden}>Recipes</h2>
+          <RecipeList />
                
           </section>
     
