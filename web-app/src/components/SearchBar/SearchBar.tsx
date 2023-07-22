@@ -24,7 +24,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     if(!foundIngredients[0]){
       setTimeout(()=> {
         if(allIngredients[0]){
-          setPlaceHolder(getRandomPlaceHolder(allIngredients))
+          setPlaceHolder(`${getRandomPlaceHolder(allIngredients)}?`)
         }
       }, 1000)
     } else {
@@ -46,7 +46,11 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     <>
       <FoundIngredients />
       <form className={styles.container} onSubmit={handleFormSubmit}>
-        <input className={styles.searchbar} type="text" value={searchTerm} onChange={handleInputChange} placeholder={placeholder} />
+          { !foundIngredients[0] &&
+            <p>In the mood for</p>
+          }
+          <input className={styles.searchbar} type="text" value={searchTerm} onChange={handleInputChange} placeholder={placeholder} />
+        
         <CgSearch size={'2rem'}/>
       </form>
       <ul className={styles.ingredientsContainer}>

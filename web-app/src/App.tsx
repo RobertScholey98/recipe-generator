@@ -12,7 +12,7 @@ function App() {
   const allIngredients = useAppSelector((state) => state.allIngredients.ingredients);
   const foundIngredients = allIngredients.filter((ingredient) => ingredient.owned)
   useEffect(() => {
-    axios.get(`https://www.themealdb.com/api/json/v1/1/list.php?i=list`)
+    axios.get(`https://www.themealdb.com/api/json/v2/9973533/list.php?i=list`)
     .then((response) => {
       console.log(response.data.meals)
       dispatch(addAllIngredients({ingredients: response.data.meals}))
@@ -22,12 +22,11 @@ function App() {
     <>
       <h1 style={{margin: '0', padding: '.5rem 0', backgroundColor: '#F6E8EA', color: 'slategrey', fontFamily: 'monospace'}}>RECIPE GENERATOR</h1>
       {!foundIngredients[0] && 
-            <h1 className={styles.launchTitle}>🍞 Add some ingredients to get started 🌽</h1>
+            <h1 className={styles.launchTitle}>🍞 SELECT SOME INGREDIENTS TO GET STARTED 🌽</h1>
           }
       <div className={styles.App}>
-          <section className={foundIngredients[0] ? styles.left : styles.leftHidden}>
-            
-          <h2 className={foundIngredients[0] ? styles.recipeTitle : styles.recipeTitleHidden}>Recipes</h2>
+          <section className={foundIngredients[0] ? styles.left : styles.leftHidden}>  
+          <h2 className={foundIngredients[0] ? styles.recipeTitle : styles.recipeTitleHidden}>RESULTS</h2>
           <RecipeList />
                
           </section>

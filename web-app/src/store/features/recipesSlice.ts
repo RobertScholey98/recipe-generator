@@ -37,8 +37,6 @@ export const RecipesSlice = createSlice({
     initialState,
     reducers: {
         updateRecipes: (state, action: PayloadAction<RecipeItem[]>) => {
-            console.log(`updating with action: ${JSON.stringify(action)}`);
-            
                     state.recipes = action.payload;
         }
         },
