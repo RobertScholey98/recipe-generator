@@ -97,7 +97,6 @@ const RecipeList: React.FC<RecipeListProps> = () => {
                         return (getMissingIngredientsNo(a as RecipeDetail, foundIngredients) - getMissingIngredientsNo(b as RecipeDetail, foundIngredients));
                     })
                     .map((recipe) => {
-                        console.log({recipe})
                         return (
                             <RecipeCard recipeId={recipe.idMeal}/>
                             )
